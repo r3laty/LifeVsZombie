@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildingWalls : MonoBehaviour
@@ -13,7 +11,7 @@ public class BuildingWalls : MonoBehaviour
             GameObject builded = Instantiate(prefab);
             builded.transform.position = new Vector3(32f, -1.5f, 15f);
             tipsReaction.isTrigger = false;
-            Destroy(tipsReaction._tipsText);
+            Destroy(tipsReaction.tipForBuildingText);
         }
     }
 }
