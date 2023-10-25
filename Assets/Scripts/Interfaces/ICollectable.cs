@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public interface ICollectable
+public interface IColectable
 {
-    int LootFromChopping();
+    void Chop();
 }

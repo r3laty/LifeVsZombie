@@ -1,14 +1,9 @@
 using UnityEngine;
 
-public class NormalTree : MonoBehaviour, ICollectable
+public class NormalTree : MonoBehaviour, IColectable
 {
-    [SerializeField] private ReactionsToTheTips tipsReaction;
-    [SerializeField] private ChoppingTrees choppingTrees;
-    public int LootFromChopping()
+    public void Chop()
     {
-        tipsReaction.tipForChopText.gameObject.SetActive(false);
         Destroy(gameObject);
-        choppingTrees.normalWoodAward += 1;
-        return choppingTrees.normalWoodAward;
     }
 }

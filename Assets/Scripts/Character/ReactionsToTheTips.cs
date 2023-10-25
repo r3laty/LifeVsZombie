@@ -1,17 +1,18 @@
 using UnityEngine;
+using TMPro;
 
 public class ReactionsToTheTips : MonoBehaviour
 {
     [HideInInspector] public bool isTrigger;
-    public GameObject tipForBuildingText;
-    public GameObject tipForChopText;
-    public GameObject cantForChopText;
+    public TextMeshProUGUI tipForBuildingText;
+    public TextMeshProUGUI tipForChopText;
+    public TextMeshProUGUI cantForChopText;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("TheStartOfHouse"))
         {
             isTrigger = true;
-            tipForBuildingText.SetActive(true);
+            tipForBuildingText.gameObject.SetActive(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -19,29 +20,29 @@ public class ReactionsToTheTips : MonoBehaviour
         if (other.CompareTag("TheStartOfHouse"))
         {
             isTrigger = false;
-            tipForBuildingText.SetActive(false);
+            tipForBuildingText.gameObject.SetActive(false);
         }
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("NormalTree"))
         {
-            tipForChopText.SetActive(true);
+            tipForChopText.gameObject.SetActive(true);
         }
         if(collision.gameObject.CompareTag("BigTree"))
         {
-            cantForChopText.SetActive(true);
+            cantForChopText.gameObject.SetActive(true);
         }
     }
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("NormalTree"))
         {
-            tipForChopText.SetActive(false);
+            tipForChopText.gameObject.SetActive(false);
         }
         if (collision.gameObject.CompareTag("BigTree"))
         {
-            cantForChopText.SetActive(false);
+            cantForChopText.gameObject.SetActive(false);
         }
     }
 }
