@@ -8,22 +8,27 @@ public class NotEnoughtResourses : MonoBehaviour
     [SerializeField] private ReactionsToTheTips tipsReaction;
     [SerializeField] private TextMeshProUGUI exeption;
     [SerializeField] private ChoppingTrees choppingTrees;
+
     private void Update()
     {
-        StartCoroutine(ShowExeption());
+        if (startingBuilding.isBuilded)
+        {
+            startingBuilding.enabled = false;
+            StartCoroutine(ShowExeption());
+        }
     }
     private IEnumerator ShowExeption()
     {
-        if (choppingTrees.woodAmount < 3 && tipsReaction.isTrigger && startingBuilding.isBuilded && Input.GetKeyDown(KeyCode.E))
+        if (choppingTrees.woodAmount < 3 && tipsReaction.isTrigger && Input.GetKeyDown(KeyCode.E))
         {
             tipsReaction.tipForBuildingText.gameObject.SetActive(false);
             exeption.gameObject.SetActive(true);
             yield return new WaitForSeconds(2);
             exeption.gameObject.SetActive(false);
         }
-        else if(choppingTrees.woodAmount >= 3 && tipsReaction.isTrigger && startingBuilding.isBuilded && Input.GetKeyDown(KeyCode.E))
+        else if(choppingTrees.woodAmount >= 3 && tipsReaction.isTrigger && Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Building...");
+            Debug.Log("Building continue...");
             choppingTrees.woodAmount -= 3;
             choppingTrees.UpdateText(choppingTrees.woodAmount);
         }

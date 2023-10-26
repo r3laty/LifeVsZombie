@@ -23,7 +23,6 @@ public class ChoppingTrees : MonoBehaviour
                 {
                     tree.Chop();
                     tipForChop.SetActive(false);
-                    
 
                     if(tree is NormalTree)
                     {
