@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSoundsSetting : MonoBehaviour
@@ -13,5 +11,12 @@ public class GameSoundsSetting : MonoBehaviour
             audioSource.clip = mainMusic;
             audioSource.Play();
         }
+        //else
+        //{
+        //    AudioSource newAudioSource = gameObject.AddComponent<AudioSource>();
+        //    newAudioSource.clip = mainMusic;
+        //    newAudioSource.Play();
+        //    newAudioSource.volume = 0.3f;
+        //}
     }
 }

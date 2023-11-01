@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 
@@ -11,7 +10,7 @@ public class ChoppingTrees : MonoBehaviour
     [HideInInspector] public int woodAmount = 0;
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

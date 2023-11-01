@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TreeSpawner : MonoBehaviour
@@ -19,20 +20,11 @@ public class TreeSpawner : MonoBehaviour
             _lastSpawnTime = Time.time;
         }
     }
-
-    private bool IsTreeNearby()
-    {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, spawnRadius);
-        return colliders.Length > 0;
-    }
-
     private void SpawnTree()
     {
-        // ќпределите минимальное и максимальное значение координаты Y дл€ спавна.
-        float minY = 0; // ћинимальна€ высота.
-        float maxY = 0.1f; // ћаксимальна€ высота.
+        float minY = 0;
+        float maxY = 0.1f;
 
-        // —оздаем новое дерево из префаба на случайной позиции XZ и ограниченной позиции Y.
         Vector3 spawnPosition = new Vector3(
             transform.position.x + Random.Range(-spawnRadius, spawnRadius),
             Random.Range(minY, maxY),
